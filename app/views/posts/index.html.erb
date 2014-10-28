@@ -1,0 +1,7 @@
+<h1>Seeing all the sweet posts at once!</h1>
+
+   <% @posts.each do |post| %>
+    <%= post.title %>
+    <%= post.author %>
+    <%= post.content %>
+    <% end %>
