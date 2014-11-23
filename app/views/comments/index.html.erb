@@ -8,15 +8,18 @@
 
   	<div class="col-sm-8 blog-main">
 
-    <%= @post.content %>
+<% @comments.each do |comment| %>
+    
+		<% if comment.post_id == @post.id %>
+    <p><b><%= comment.commenter %>:</b>
+    <%= comment.content %></p>
 
-    <br>
-    <%= link_to "View Comments", post_comments_path(:post_id => @post.id) %>
-    <br>
-    <%= link_to "Add Comment", new_post_comment_path(:post_id => @post.id) %>
-    
-    
-  </div>
+    <% end %>
+<% end %>
+
+<%= link_to "Comment",new_post_comment_path %>
+
+</div>
 
     <%= render 'layouts/sidebar' %>
 

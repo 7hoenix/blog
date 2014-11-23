@@ -1,11 +1,20 @@
+<% if current_user.id == 1 %>
+
 <h1>I'm where you go to enter you post information! yayyy</h1>
+
+
 
 <%= form_for @post do |f| %>
     <%= f.label :Title %>
     <%= f.text_area :title %>
-    <%= f.label :Author %>
-    <%= f.text_area :author %>
+
+    <%= f.hidden_field :author, :value => current_user.name %>
+    
     <%= f.label :Content %>
     <%= f.text_area :content %>
     <%= f.submit :Post %>
 <% end %>
+
+<% else %>
+<h1>You are not authorized to post here yo! Sorry</h1>
+	<% end %>

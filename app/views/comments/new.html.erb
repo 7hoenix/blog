@@ -1,3 +1,4 @@
+
 <div class="container">
 	<div class="blog-header">
 		<h1 class="blog-title"><%= @post.title %></h1>
@@ -8,14 +9,8 @@
 
   	<div class="col-sm-8 blog-main">
 
-    <%= @post.content %>
+		<%= render 'form' %>
 
-    <br>
-    <%= link_to "View Comments", post_comments_path(:post_id => @post.id) %>
-    <br>
-    <%= link_to "Add Comment", new_post_comment_path(:post_id => @post.id) %>
-    
-    
   </div>
 
     <%= render 'layouts/sidebar' %>
@@ -23,3 +18,7 @@
   </div>
 
 </div>
+
+
+
+

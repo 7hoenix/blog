@@ -1,20 +1,24 @@
 <div class="container">
 
   <div class="blog-header">
-    <h1 class="blog-title">The Personal JPhoenix</h1>
-    <p class="lead blog-description">Change is NOT something you find in your pocket.</p>
+    <h1 class="blog-title">next level politics</h1>
+    <p class="lead blog-description">the way the world could be</p>
   </div>
 
   <div class="row">
 
     <div class="col-sm-8 blog-main">
 
-<% @posts.each do |post| %>
+<% @posts.reverse.each do |post| %>
       <div class="blog-post">
-        <h2 class="blog-post-title"><%= post.title %></h2>
+        <h2 class="blog-post-title"><%= link_to post.title, post %></h2>
         <p class="blog-post-meta"><%=  %> <a href="#"><%= post.author %></a></p>
 
         <%= post.content %>
+        <br>
+        <%= link_to "View Comments", post_comments_path(:post_id => post.id) %>
+        <br>
+        <%= link_to "Add Comment", new_post_comment_path(:post_id => post.id) %>
       </div><!-- /.blog-post -->
 <% end %>
 

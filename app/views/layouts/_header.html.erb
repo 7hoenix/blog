@@ -1,11 +1,17 @@
 <div class="blog-masthead">
   <div class="container">
     <nav class="blog-nav">
-      <a class="blog-nav-item active" href="#">Home</a>
-      <a class="blog-nav-item" href="#">New features</a>
-      <a class="blog-nav-item" href="#">Press</a>
-      <a class="blog-nav-item" href="#">New hires</a>
-      <a class="blog-nav-item" href="#">About</a>
-    </nav>
+      <%= link_to "home", posts_path, class: "blog-nav-item" %>
+      <%= link_to "personal development", pages_personal_development_path, class: "blog-nav-item" %>
+      <%= link_to "skills", pages_skills_path, class: "blog-nav-item" %>
+      <%= link_to "big picture", pages_big_picture_path, class: "blog-nav-item" %>
+    
+    <% if user_signed_in? %>
+    	  <%= link_to "Sign out",
+    		destroy_user_session_path, :method => :delete, class: "blog-nav-item" %>
+    <% else %>
+    		<%= link_to "Sign in", new_user_session_path, class: "blog-nav-item" %>
+    <% end %>
+    	</nav>
   </div>
 </div>
